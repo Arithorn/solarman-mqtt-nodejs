@@ -1,0 +1,32 @@
+{
+  "name": "solarman-mqtt-nodejs",
+  "version": "0.0.1",
+  "description": "NodeJS Daemon that reads Solarman PV Data via the API and publishes it to MQTT for consumption.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arithorn/solarman-mqtt-nodejs.git"
+  },
+  "keywords": [
+    "MQTT",
+    "NodeJS",
+    "Solarman",
+    "Home",
+    "Assistant",
+    "Grafana"
+  ],
+  "author": "Peet Gouws",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arithorn/solarman-mqtt-nodejs/issues"
+  },
+  "homepage": "https://github.com/Arithorn/solarman-mqtt-nodejs#readme",
+  "dependencies": {
+    "axios": "^1.1.3",
+    "dotenv": "^16.0.3",
+    "mqtt": "^4.3.7"
+  }
+}
