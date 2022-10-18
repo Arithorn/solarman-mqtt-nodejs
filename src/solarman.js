@@ -14,11 +14,21 @@ const getToken = async () => {
   return access_token;
 };
 
-const getStationId = async () => {
+const getStationIds = async () => {
   const result = await api.post(`/station/v1.0/list`, { size: 20, page: 1 });
-  const { stationList } = result.data;
-  const { id } = stationList[process.env.stationNumber];
-  return id;
+  const { total, stationList } = result.data;
+  let idList = [];
+  for (let i = 0; i < total; i++) {
+    const { id } = stationList[process.env.stationNumber];
+    idList.push(id);
+  }
+  return idList;
 };
 
-module.exports = { getToken, getStationId };
+const getPlantData = async (stationId) => {
+  const result = await api.post(`/station/v1.0/realTime`, { stationId });
+  const data = result.data;
+  return data;
+};
+
+module.exports = { getToken, getStationId: getStationIds, getPlantData };
