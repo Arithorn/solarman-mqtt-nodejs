@@ -19,10 +19,22 @@ const getStationIds = async () => {
   const { total, stationList } = result.data;
   let idList = [];
   for (let i = 0; i < total; i++) {
-    const { id } = stationList[process.env.stationNumber];
+    const { id } = stationList[i];
     idList.push(id);
   }
   return idList;
+};
+
+const getDeviceList = async (stationId) => {
+  const result = await api.post(`/station/v1.0/device`, { stationId });
+  const data = result.data;
+  return data;
+};
+
+const getDeviceData = async (deviceSn) => {
+  const result = await api.post(`/device/v1.0/currentData`, { deviceSn });
+  const data = result.data;
+  return data;
 };
 
 const getPlantData = async (stationId) => {
@@ -31,4 +43,10 @@ const getPlantData = async (stationId) => {
   return data;
 };
 
-module.exports = { getToken, getStationId: getStationIds, getPlantData };
+module.exports = {
+  getToken,
+  getStationIds,
+  getDeviceList,
+  getDeviceData,
+  getPlantData,
+};
