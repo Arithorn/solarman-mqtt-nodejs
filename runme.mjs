@@ -10,6 +10,7 @@ const single_run = (stationList) => {
 
 await getToken();
 const stationList = await getStationIds();
+single_run(stationList);
 var intervalId = setInterval(function () {
   // call your function here
   console.log("Checking Data");

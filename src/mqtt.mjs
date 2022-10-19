@@ -4,7 +4,11 @@ import { connect } from "mqtt"; // import connect from mqtt
 dotenv.config();
 const { mqtt_broker, mqtt_port, mqtt_topic, mqtt_username, mqtt_password } =
   process.env;
-let client = connect(`mqtt:/${mqtt_broker}:${mqtt_port}/`); // create a client
+console.log(`mqtt:/${mqtt_broker}:${mqtt_port}/`);
+let client = connect(`mqtt:/${mqtt_broker}:${mqtt_port}/`, {
+  username: mqtt_username,
+  password: mqtt_password,
+}); // create a client
 
 client.on("connect", () => {
   console.log("connected to mqtt");
