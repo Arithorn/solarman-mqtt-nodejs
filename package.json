@@ -1,10 +1,11 @@
 {
   "name": "solarman-mqtt-nodejs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "NodeJS Daemon that reads Solarman PV Data via the API and publishes it to MQTT for consumption.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node runme.js"
   },
   "repository": {
     "type": "git",
