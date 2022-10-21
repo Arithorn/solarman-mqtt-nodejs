@@ -1,6 +1,6 @@
-import { getToken, getStationIds } from "./src/solarman.js";
+import { getToken, getStationIds } from "./src/solarman.mjs";
 import { processStation } from "./src/processing.mjs";
-import dotenv from "dotenv";
+import config from "config";
 
 const single_run = (stationList) => {
   stationList.forEach(async (stationId, index) => {
@@ -8,13 +8,11 @@ const single_run = (stationList) => {
   });
 };
 
-dotenv.config();
-const { refresh_time } = process.env;
+const refresh_time = config.get("refresh_time");
 await getToken();
 const stationList = await getStationIds();
 single_run(stationList);
 var intervalId = setInterval(function () {
-  // call your function here
   console.log("Checking Data");
   single_run(stationList);
 }, refresh_time * 60000);

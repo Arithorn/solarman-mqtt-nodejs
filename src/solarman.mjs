@@ -1,9 +1,13 @@
-require("dotenv").config();
-const api = require("./api/solarman");
+import api from "./api/solarman.mjs";
+import config from "config";
 
 const getToken = async () => {
   try {
-    const { appid, secret, username, passhash, orgid } = process.env;
+    const appid = config.get("appid");
+    const secret = config.get("secret");
+    const username = config.get("username");
+    const passhash = config.get("passhash");
+    const orgid = config.get("orgid");
     const result = await api.post(`/account/v1.0/token?appId=${appid}`, {
       appSecret: secret,
       email: username,
@@ -63,10 +67,4 @@ const getPlantData = async (stationId) => {
   }
 };
 
-module.exports = {
-  getToken,
-  getStationIds,
-  getDeviceList,
-  getDeviceData,
-  getPlantData,
-};
+export { getToken, getStationIds, getDeviceList, getDeviceData, getPlantData };

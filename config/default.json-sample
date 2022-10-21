@@ -1,0 +1,16 @@
+{
+  "url": "api.solarmanpv.com",
+  "appid": "",
+  "orgid": 0,
+  "secret": "",
+  "username": "",
+  "passhash": "",
+  "mqtt": {
+    "broker": "127.0.0.1",
+    "port": 1883,
+    "topic": "solarmanpv",
+    "username": "solarman",
+    "password": ""
+  },
+  "refresh_time": 3
+}

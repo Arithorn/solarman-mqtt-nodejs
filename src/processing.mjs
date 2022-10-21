@@ -1,4 +1,4 @@
-import { getDeviceList, getDeviceData, getPlantData } from "./solarman.js";
+import { getDeviceList, getDeviceData, getPlantData } from "./solarman.mjs";
 import { sendData } from "./mqtt.mjs";
 
 const processDeviceData = async (stationName, deviceName, deviceDataList) => {

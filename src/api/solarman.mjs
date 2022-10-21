@@ -1,5 +1,4 @@
-require("dotenv").config();
-const axios = require("axios");
+import axios from "axios";
 
 const instance = axios.create({
   baseURL: "https://api.solarmanpv.com",
@@ -9,4 +8,4 @@ const instance = axios.create({
 //   return request;
 // });
 
-module.exports = instance;
+export default instance;
