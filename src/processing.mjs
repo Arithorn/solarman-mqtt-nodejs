@@ -11,7 +11,7 @@ const processDeviceData = async (stationName, deviceName, deviceDataList) => {
     newDataList[key] = `${val}`;
   });
 
-  let topic = `${stationName}/${deviceName}`;
+  let topic = `${stationName}/${deviceName}-data`;
   sendData(topic, newDataList);
 };
 

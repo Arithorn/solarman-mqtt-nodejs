@@ -10,9 +10,12 @@ const single_run = (stationList) => {
 
 const refresh_time = config.get("refresh_time");
 await getToken();
+
 const stationList = await getStationIds();
 single_run(stationList);
-var intervalId = setInterval(function () {
-  console.log("Checking Data");
+var intervalId = setInterval(async function () {
+  await getToken();
+  stationList = await getStationIds();
+  console.log(`Checking Data - ${Date.now()}`);
   single_run(stationList);
 }, refresh_time * 60000);
