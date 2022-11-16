@@ -15,7 +15,6 @@ const stationList = await getStationIds();
 single_run(stationList);
 var intervalId = setInterval(async function () {
   await getToken();
-  stationList = await getStationIds();
   console.log(`Checking Data - ${Date.now()}`);
   single_run(stationList);
 }, refresh_time * 60000);
