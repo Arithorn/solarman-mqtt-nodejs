@@ -14,6 +14,7 @@ const getToken = async () => {
       orgId: orgid,
       password: passhash,
     });
+    // console.log(result);
     const { access_token } = result.data;
     api.defaults.headers.common["Authorization"] = `Bearer ${access_token}`;
     return access_token;
@@ -26,6 +27,7 @@ const getStationIds = async () => {
   try {
     const result = await api.post(`/station/v1.0/list`, { size: 20, page: 1 });
     const { total, stationList } = result.data;
+    // console.log(result);
     let idList = [];
     for (let i = 0; i < total; i++) {
       const { id } = stationList[i];

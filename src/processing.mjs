@@ -4,6 +4,10 @@ import { sendData } from "./mqtt.mjs";
 const processDeviceData = async (stationName, deviceName, deviceDataList) => {
   const newDataList = {};
   const data = deviceDataList.dataList;
+  if (!data) {
+    return;
+  }
+  console.log({ data });
   data.forEach((item) => {
     let key = item.name.replace(/[^a-zA-Z]/g, "_");
     let val = item.value;
